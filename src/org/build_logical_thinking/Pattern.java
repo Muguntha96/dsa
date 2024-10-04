@@ -12,6 +12,7 @@ public class Pattern {
 		pattern7(4);
 		pattern8(4);
 		pattern9(4);
+		pattern10(3);
 		
 	}
 //Exercise:1 Sam is making a forest visualizer. An N-dimensional forest is represented by the pattern of size NxN filled with ‘*’.
@@ -190,6 +191,28 @@ Result:
 		
 
 	}
+/* 	Input Format: N = 3
+Result: 
+  *  
+  **
+  ***  
+  **
+  * 
+*/
+  static void pattern10(int n){
+	for(int i=0;i<n;i++) {
+		for(int j=0;j<=i;j++) {
+			System.out.print("* ");
+		}
+		System.out.println();
+	}
+	for(int i=0;i<n;i++) {
+		for(int j=n-2;j>=i;j--) {
+			System.out.print("* ");
+		}
+		System.out.println();
+	}
+  }
 }
 
 
