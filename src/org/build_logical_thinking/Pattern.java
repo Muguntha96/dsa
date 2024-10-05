@@ -2,6 +2,7 @@ package org.build_logical_thinking;
 
 public class Pattern {
 
+	
 	public static void main(String[] args) {
 		nForest(5);
 		pattern2(5);
@@ -13,6 +14,8 @@ public class Pattern {
 		pattern8(4);
 		pattern9(4);
 		pattern10(3);
+		
+		
 		
 	}
 //Exercise:1 Sam is making a forest visualizer. An N-dimensional forest is represented by the pattern of size NxN filled with ‘*’.
@@ -199,7 +202,7 @@ Result:
   **
   * 
 */
-  static void pattern10(int n){
+  	static void pattern10(int n){
 	for(int i=0;i<n;i++) {
 		for(int j=0;j<=i;j++) {
 			System.out.print("* ");
@@ -213,7 +216,58 @@ Result:
 		System.out.println();
 	}
   }
-}
+  /* 
+   Input Format: N = 3
+Result: 
+1
+01
+101
+   */
+  	/* static void pattern11(int n){
+		for(int i=0;i<n;i++){
+			
+		}
+	}
+ */
+	/* 
+567. Permutation in String
+Medium
+Topics
+Companies
+Hint
 
+Given two strings s1 and s2, return true if s2 contains a
+permutation
+of s1, or false otherwise.
+
+In other words, return true if one of s1's permutations is the substring of s2.
+
+ 
+
+Example 1:
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Output: true
+Explanation: s2 contains one permutation of s1 ("ba").
+
+Example 2:
+
+Input: s1 = "ab", s2 = "eidboaoo"
+Output: false
+
+ 
+
+Constraints:
+
+    1 <= s1.length, s2.length <= 104
+    s1 and s2 consist of lowercase English letters.
+
+
+
+*/
+
+
+
+}
 
 
