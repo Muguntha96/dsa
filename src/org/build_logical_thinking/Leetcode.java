@@ -3,14 +3,25 @@ package org.build_logical_thinking;
 public class Leetcode {
     String s1;
 	String s2;
+    String s;
 	public Leetcode(String s1,String s2){
 		this.s1=s1;
 		this.s2=s2;
 	}
 
+  
+
+    public Leetcode(String string) {
+        this.s=s;
+    }
+
+
+
     public static void main(String[] args) {
         Leetcode obj=new Leetcode("abi","abby");
 		System.out.println(obj.checkInclusion("Muguuntha", "Nithya"));
+        Leetcode obj1=new Leetcode("][][");
+        System.out.println(obj1.minSwaps("]]][[["));
     }
 
     public boolean checkInclusion(String s1, String s2){
@@ -57,6 +68,20 @@ public class Leetcode {
 
         return false;
         
+        
+    }
+    //Exercise 2 //3312
+    public int minSwaps(String s) {
+        int count =0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='['){
+                count++;
+            }
+            if(s.charAt(i) == ']' && count>0){
+                count--;
+            }
+        }
+        return (count+1)>>1;
         
     }
 }
