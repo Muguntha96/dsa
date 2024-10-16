@@ -9,6 +9,8 @@ public class ArrayDsa {
 		System.out.println(Arrays.toString(addingEle(arr)));
 		String s= "Geeks";
 		System.out.println(reverseString(s));
+		System.out.println(Arrays.toString(insertEleEnd(arr)));
+		System.out.println(Arrays.toString(insertAtAnyPosition(arr,2,20)));
 
 	}
 	
@@ -42,5 +44,34 @@ public class ArrayDsa {
 		return newString;
 	       
 	    }
-
+	 //insert element at end
+	 static int[] insertEleEnd(int[] arr) {
+		 int[] newArr=new int[arr.length+1];
+		 for(int i=0;i<newArr.length;i++) {
+			if(i== newArr.length-1) {
+				newArr[i]=20;
+			}else {
+				 newArr[i]=arr[i];
+			}
+		 }
+		 
+		 
+		return newArr;
+		 
+	 }
+	 //Inserting Elements in an Array at any Position:
+	 static int[] insertAtAnyPosition(int[] arr,int pos,int val) {
+		 int[] newArr=new int[arr.length+1];
+		 for(int i=0;i<newArr.length;i++) {
+			 if(i<pos){
+					newArr[i]=arr[i];
+					}else if(i==pos) {
+						newArr[i]=val;
+				}else {
+					newArr[i]=arr[i-1];
+				}
+			 }
+		return newArr;
+		 
+	 }
 }
