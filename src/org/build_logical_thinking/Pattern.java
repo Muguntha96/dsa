@@ -14,6 +14,7 @@ public class Pattern {
 		pattern8(4);
 		pattern9(4);
 		pattern10(3);
+		pattern11(4);
 		
 		
 		
@@ -266,8 +267,21 @@ Constraints:
 
 */
 
+  	static void pattern11(int n){
+  		for(int i=0;i<n;i++) {
+  			for(int j=0;j<=i;j++) {
+  				System.out.print("* ");
+  			}
+  			System.out.println();
+  		}
+  		for(int i=0;i<n;i++) {
+  			for(int j=n-2;j>=i;j--) {
+  				System.out.print("* ");
+  			}
+  			System.out.println();
+  		}
 
-
+}
 }
 
 
