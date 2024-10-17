@@ -11,6 +11,9 @@ public class ArrayDsa {
 		System.out.println(reverseString(s));
 		System.out.println(Arrays.toString(insertEleEnd(arr)));
 		System.out.println(Arrays.toString(insertAtAnyPosition(arr,2,20)));
+		int[] nArr= {2,1,3,4,5,6,8,10};
+		int[] remove = removeEven(nArr);
+		System.out.println(Arrays.toString(remove));
 
 	}
 	
@@ -72,6 +75,37 @@ public class ArrayDsa {
 				}
 			 }
 		return newArr;
+		 
+	 }
+	 
+	 //Remove even integers 
+	 static int[] removeEven(int[] arr) {
+		 //We can not change the size of the array so we need to create new array
+		 //We need to find the size of new array by
+		 	//iterate each elemtn in orignal array and chck the element is odd number or not and count the elements
+		 	//then create an array with that size
+		 //new iterate original array and check the element is even or not
+		 	//if the element is even skip the element using continue
+		 	//else add the element to new array
+		// return the new array
+		 int countOdd=0;
+		 for (int i : arr) {
+			if(i%2!=0) {
+				countOdd++;
+			}
+		 }
+		 int[] oddArr = new int[countOdd];
+		 int idx=0;
+		 for (int i1=0;i1<arr.length;i1++) {
+			
+			if(arr[i1]%2!=0) {
+				oddArr[idx]=arr[i1];
+				idx++;
+			}
+		}
+		
+		 
+		return oddArr;
 		 
 	 }
 }
