@@ -6,17 +6,34 @@ public class ArrayDsa {
 
 	public static void main(String[] args) {
 		int[] arr= {1,2,3,4};
-		System.out.println(Arrays.toString(addingEle(arr)));
+		int[] addedArr=addingEle(arr);
+		printArray(addedArr);
+		
 		String s= "Geeks";
 		System.out.println(reverseString(s));
-		System.out.println(Arrays.toString(insertEleEnd(arr)));
-		System.out.println(Arrays.toString(insertAtAnyPosition(arr,2,20)));
+		
+		int[] insertedEnd=insertEleEnd(arr);
+		printArray(insertedEnd);
+		
+		int[] insertedAtAnyPoint=insertAtAnyPosition(arr,2,20);
+		printArray(insertedAtAnyPoint);
+		
 		int[] nArr= {2,1,3,4,5,6,8,10};
 		int[] remove = removeEven(nArr);
-		System.out.println(Arrays.toString(remove));
+		printArray(remove);
+		
+		int[] reversedArr=reverseArray(arr);
+		printArray(reversedArr);
 
 	}
-	
+	static void printArray(int[] array) {
+		int n=array.length;
+		for (int i : array) {
+			System.out.print(i +" ");
+		}
+		System.out.println();
+		
+	}
 	static int[] addingEle(int[] arr) {
 		int[] newArr=new int[arr.length+1];
 		for(int i=0;i<newArr.length;i++) {
@@ -108,4 +125,25 @@ public class ArrayDsa {
 		return oddArr;
 		 
 	 }
+	 
+	 //reverse Array
+	 static int[] reverseArray(int[] arr) {
+		 int n=arr.length;
+			/*
+			 * for(int i=0;i<n/2;i++) { int temp=arr[i]; arr[i]=arr[n-i-1]; arr[n-1]=temp; }
+			 */
+		 int start=0;
+		 int end=n-1;
+		 while(start<end) {
+			 int temp=arr[start];
+			 arr[start]=arr[end];
+			 arr[end]=temp;
+			 start++;
+			 end--;
+		 }
+		return arr;
+		
+		 
+	 }
+	 
 }
