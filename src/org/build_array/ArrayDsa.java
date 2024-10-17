@@ -24,6 +24,10 @@ public class ArrayDsa {
 		
 		int[] reversedArr=reverseArray(arr);
 		printArray(reversedArr);
+		
+		int minimunValueOfUnsortedArr=unsortFindMin(nArr);
+		System.out.println(minimunValueOfUnsortedArr);
+		
 
 	}
 	static void printArray(int[] array) {
@@ -145,5 +149,25 @@ public class ArrayDsa {
 		
 		 
 	 }
+	 
+	 //find minimum value in the unsorted array
+	 
+	 static int unsortFindMin(int[] arr) {
+		 int min=Integer.MAX_VALUE;
+		 int n=arr.length;
+		 int i=0;
+		 if(n ==0) {
+			 return 0;
+		 }
+		 while(i<n) {
+			 if(arr[i]<min) {
+				 min=arr[i];
+			 }
+			 i++;
+		 }
+		return min;
+		 
+	 }
+	 
 	 
 }
