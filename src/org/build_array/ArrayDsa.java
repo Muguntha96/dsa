@@ -27,10 +27,17 @@ public class ArrayDsa {
 		
 		int minimunValueOfUnsortedArr=unsortFindMin(nArr);
 		System.out.println(minimunValueOfUnsortedArr);
+		
 		int[] arra= {2,10,200,199,144,100};
 		int[] minValueOfSecThrd=unsortedFindSecThrdMin(arra);
 		printArray(minValueOfSecThrd);
 		
+		int secondMaxValueofarr=secodnMax(arra);
+		System.out.println(secondMaxValueofarr);
+		
+		int[] zArr= {0,1,0,2,3,0,4,0};
+		int[] movedZerosArr=moveZeros(zArr);
+		System.out.println(Arrays.toString(movedZerosArr));
 
 	}
 	static void printArray(int[] array) {
@@ -179,7 +186,9 @@ public class ArrayDsa {
 		int thrdMin=Integer.MAX_VALUE;
 		int n=arr.length;
 		int i=0;
-		if(n==0)return new int[0];
+		if(n==0) {
+			throw new IllegalArgumentException("Invalid Input");
+		}
 		while(i<n) {
 			if(arr[i]<min) {
 				thrdMin=secMin;
@@ -190,7 +199,7 @@ public class ArrayDsa {
 				thrdMin=secMin;
 				secMin=arr[i];
 			}
-			if((arr[i]!=min) && (arr[i]!=secMin) && arr[i]<thrdMin)thrdMin=arr[i];
+			if((arr[i]!=min) && (arr[i]!=secMin) && arr[i]<thrdMin) thrdMin=arr[i];
 			i++;
 		}
 		if(secMin==Integer.MAX_VALUE)secMin=-1;
@@ -199,5 +208,54 @@ public class ArrayDsa {
 		return new int[] {secMin,thrdMin};
 		 
 	 }
+	 
+	 //second Max in array
+	 static int secodnMax(int[] arr) {
+		 int max=Integer.MIN_VALUE;
+		 int secMax=Integer.MIN_VALUE;
+		 int n=arr.length;
+		 if(arr==null || n==0) {
+			 throw new IllegalArgumentException("Invalid Input");
+		 }
+		 for(int i=0;i<n;i++) {
+			 if(arr[i]>max) {
+				 secMax=max;
+				 max=arr[i];
+			 }else if(arr[i]!=max && arr[i]>secMax) {
+				 secMax=arr[i];
+			 }
+			 
+		 }
+		 
+		 
+		 return secMax;
+		 
+	 }
+	 
+	 //move 0s to end of the array
+	 
+	 static int[] moveZeros(int[] arr) {
+		int n=arr.length;
+		int i=0,j=0;
+		while(i<n) {
+			if(arr[i]!=0 ) {
+				if(i!=j) {
+					int temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+				j++;
+			}
+			
+				
+						i++;
+		}
+		
+		 
+		return arr;
+		 
+	 }
+	 
+	 
 	 
 }
