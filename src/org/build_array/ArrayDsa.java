@@ -27,6 +27,9 @@ public class ArrayDsa {
 		
 		int minimunValueOfUnsortedArr=unsortFindMin(nArr);
 		System.out.println(minimunValueOfUnsortedArr);
+		int[] arra= {2,10,200,199,144,100};
+		int[] minValueOfSecThrd=unsortedFindSecThrdMin(arra);
+		printArray(minValueOfSecThrd);
 		
 
 	}
@@ -169,5 +172,32 @@ public class ArrayDsa {
 		 
 	 }
 	 
+	 //find second and third min value from unsorted array
+	 static int[] unsortedFindSecThrdMin(int[] arr) {
+		int min=Integer.MAX_VALUE;
+		int secMin=Integer.MAX_VALUE;
+		int thrdMin=Integer.MAX_VALUE;
+		int n=arr.length;
+		int i=0;
+		if(n==0)return new int[0];
+		while(i<n) {
+			if(arr[i]<min) {
+				thrdMin=secMin;
+				secMin=min;
+				min=arr[i];
+			}
+			if((arr[i]!=min) && arr[i]<secMin) {
+				thrdMin=secMin;
+				secMin=arr[i];
+			}
+			if((arr[i]!=min) && (arr[i]!=secMin) && arr[i]<thrdMin)thrdMin=arr[i];
+			i++;
+		}
+		if(secMin==Integer.MAX_VALUE)secMin=-1;
+		if(thrdMin==Integer.MAX_VALUE)thrdMin=-1;
+		
+		return new int[] {secMin,thrdMin};
+		 
+	 }
 	 
 }
