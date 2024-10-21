@@ -38,6 +38,10 @@ public class ArrayDsa {
 		int[] zArr= {0,1,0,2,3,0,4,0};
 		int[] movedZerosArr=moveZeros(zArr);
 		System.out.println(Arrays.toString(movedZerosArr));
+		
+		int[] yArr= {10,2,34,54,12,3};
+		int[] sortedAsc=sortAsc(yArr);
+		printArray(sortedAsc);
 
 	}
 	static void printArray(int[] array) {
@@ -255,7 +259,46 @@ public class ArrayDsa {
 		return arr;
 		 
 	 }
-	 
+	 //sort array ass to descending
+	 static int[] sortAsc(int[] a) {
+		 //Bubble Sort (inefficient)
+			/*
+			 * if(a.length<=1) { return a; } for(int i=0;i<a.length-1;i++) { for(int
+			 * j=0;j<a.length-1-i;j++) { if(a[j]>a[j+1]) { int temp=a[j]; a[j]=a[j+1];
+			 * a[j+1]=temp; } } }
+			 * 
+			 * 
+			 * return a;
+			 */
+		 if(a.length<=1) {
+			 return a;
+		 }
+		 int seperate=a.length/2;
+		 int[] left=Arrays.copyOfRange(a, 0, seperate);
+		 int[] right=Arrays.copyOfRange(a, seperate, a.length);
+		 
+		return merge(sortAsc(left),sortAsc(right));
+			 
+		 }
+	private static int[] merge(int[] left, int[] right) {
+		int[] sortedArr=new int[left.length +right.length];
+		int i=0,j=0,k=0;
+		while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                sortedArr[k++] = left[i++];
+            } else {
+                sortedArr[k++] = right[j++];
+            }
+        }
+		while(i<left.length) {
+			sortedArr[k++]=left[i++];
+			
+		}
+		while(j<right.length) {
+			sortedArr[k++] = right[j++];
+		}
+		return sortedArr;
+	}
 	 
 	 
 }
