@@ -40,7 +40,7 @@ public class ArrayDsa {
 		System.out.println(Arrays.toString(movedZerosArr));
 		
 		int[] yArr= {10,2,34,54,12,3};
-		int[] sortedAsc=sortAsc(yArr);
+		int[] sortedAsc=desc(yArr);
 		printArray(sortedAsc);
 
 	}
@@ -260,7 +260,7 @@ public class ArrayDsa {
 		 
 	 }
 	 //sort array ass to descending
-	 static int[] sortAsc(int[] a) {
+	 static int[] desc(int[] a) {
 		 //Bubble Sort (inefficient)
 			/*
 			 * if(a.length<=1) { return a; } for(int i=0;i<a.length-1;i++) { for(int
