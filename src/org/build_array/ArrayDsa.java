@@ -40,7 +40,7 @@ public class ArrayDsa {
 		System.out.println(Arrays.toString(movedZerosArr));
 		
 		int[] yArr= {10,2,34,54,12,3};
-		int[] sortedAsc=desc(yArr);
+		int[] sortedAsc=sortAsc(yArr);
 		printArray(sortedAsc);
 
 	}
@@ -260,45 +260,45 @@ public class ArrayDsa {
 		 
 	 }
 	 //sort array ass to descending
-	 static int[] desc(int[] a) {
-		 //Bubble Sort (inefficient)
-			/*
-			 * if(a.length<=1) { return a; } for(int i=0;i<a.length-1;i++) { for(int
-			 * j=0;j<a.length-1-i;j++) { if(a[j]>a[j+1]) { int temp=a[j]; a[j]=a[j+1];
-			 * a[j+1]=temp; } } }
-			 * 
-			 * 
-			 * return a;
-			 */
-		 if(a.length<=1) {
-			 return a;
-		 }
-		 int seperate=a.length/2;
-		 int[] left=Arrays.copyOfRange(a, 0, seperate);
-		 int[] right=Arrays.copyOfRange(a, seperate, a.length);
-		 
-		return merge(sortAsc(left),sortAsc(right));
-			 
-		 }
-	private static int[] merge(int[] left, int[] right) {
-		int[] sortedArr=new int[left.length +right.length];
-		int i=0,j=0,k=0;
-		while (i < left.length && j < right.length) {
-            if (left[i] <= right[j]) {
-                sortedArr[k++] = left[i++];
-            } else {
-                sortedArr[k++] = right[j++];
-            }
-        }
-		while(i<left.length) {
-			sortedArr[k++]=left[i++];
-			
-		}
-		while(j<right.length) {
-			sortedArr[k++] = right[j++];
-		}
-		return sortedArr;
-	}
+	 static int[] sortAsc(int[] a) {
+	        // Handle null or trivial array case
+	        if (a == null || a.length <= 1) {
+	            return a;
+	        }
+
+	        // Merge Sort
+	        int middle = a.length / 2;
+	        int[] left = Arrays.copyOfRange(a, 0, middle);
+	        int[] right = Arrays.copyOfRange(a, middle, a.length);
+
+	        return merge(sortAsc(left), sortAsc(right));
+	    }
+
+	    private static int[] merge(int[] left, int[] right) {
+	        int[] sortedArr = new int[left.length + right.length];
+	        int i = 0, j = 0, k = 0;
+
+	        // Merge two sorted arrays
+	        while (i < left.length && j < right.length) {
+	            if (left[i] <= right[j]) {
+	                sortedArr[k++] = left[i++];
+	            } else {
+	                sortedArr[k++] = right[j++];
+	            }
+	        }
+
+	        // Copy any remaining elements from left array
+	        while (i < left.length) {
+	            sortedArr[k++] = left[i++];
+	        }
+
+	        // Copy any remaining elements from right array
+	        while (j < right.length) {
+	            sortedArr[k++] = right[j++];
+	        }
+
+	        return sortedArr;
+	    }
 	 
 	 
 }
