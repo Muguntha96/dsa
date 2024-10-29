@@ -8,7 +8,7 @@ Notice that you may not slant the container.*/
 
 package org.leetcode.array;
 
-public class Leetcode11 {
+public class ContainerWithMostWater {
 	public static void main(String[] args) {
 		int[] height= {1,8,6,2,5,4,8,3,7};
 		int maximumArea=maxArea(height);
